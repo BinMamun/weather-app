@@ -3,13 +3,20 @@ let apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 
 async function checkWeather(city) {
     let response = await fetch(`${apiUrl}${city}&appid=${apiKey}`);
-    let data = await response.json();
-    document.querySelector(".js-temp").innerHTML = `${Math.round(data.main.temp)} °C`;
-    document.querySelector(".js-city-name").innerHTML = data.name;
-    document.querySelector(".js-humidity").innerHTML = `${data.main.humidity}%`;
-    document.querySelector(".js-wind-speed").innerHTML = `${data.wind.speed}km`;
-    document.querySelector(".js-weather-icon").src = `./images/${data.weather[0].main}.png`;
-    document.querySelector(".js-weather-type").innerHTML = `${data.weather[0].main}`;
+
+    if (response.status == 404) {
+        document.querySelector(".js-error-message").style.display = "block";
+    } else {
+        let data = await response.json();
+        document.querySelector(".js-temp").innerHTML = `${Math.round(data.main.temp)} °C`;
+        document.querySelector(".js-city-name").innerHTML = data.name;
+        document.querySelector(".js-humidity").innerHTML = `${data.main.humidity}%`;
+        document.querySelector(".js-wind-speed").innerHTML = `${data.wind.speed}km`;
+        document.querySelector(".js-weather-icon").src = `./images/${data.weather[0].main}.png`;
+        document.querySelector(".js-weather-type").innerHTML = `${data.weather[0].main}`;
+        document.querySelector(".js-error-message").style.display = "none";
+    }
+
 }
 checkWeather("Dhaka");
 
