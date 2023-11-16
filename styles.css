@@ -59,12 +59,43 @@ body {
     align-content: center;
 }
 
-.details {
-    display: grid;
-    grid-template-columns: auto auto;
-    padding: 15px;
-    column-gap: 20px;
-
+.weather-icon {
+    height: 150px;
+    margin-top: 20px;
 }
 
-.col {}
+.temp {
+    font-size: 50px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.city {
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.details {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    justify-content: space-between;
+}
+
+.col {
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.col img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+.humidity,
+.wind {
+    margin-top: -10px;
+    font-size: 25px;
+}
