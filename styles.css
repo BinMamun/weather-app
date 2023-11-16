@@ -64,6 +64,11 @@ body {
     margin-top: 20px;
 }
 
+.weather-type {
+    margin-top: 7px;
+    margin-bottom: -5px;
+}
+
 .temp {
     font-size: 50px;
     font-weight: 500;
